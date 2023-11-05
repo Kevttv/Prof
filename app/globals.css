@@ -1,11 +1,25 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
+@layer components {
     .Links {
-        @apply w-full h-[45px] flex items-center rounded-[10px] hover:bg-black hover:text-white
+        @apply w-full h-[45px] p-2 gap-3 flex items-center rounded-[10px] hover:bg-black hover:text-white text-white text-[18px] focus:bg-black;
+    }
+
+    .CardProfile {
+        @apply flex items-center gap-2 h-1/6 w-full mt-4 mx-2 p-4 rounded-s-xl text-white bg-[#3d90c7] shadow-[#183a50] shadow-lg hover:shadow-black;
     }
 }
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+.GridMain{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
