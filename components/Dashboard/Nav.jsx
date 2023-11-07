@@ -5,7 +5,7 @@ import * as HiIcons from 'react-icons/hi';
 
 export default function Nav() {
     return (
-        <div className='flex flex-col justify-evenly gap-1 mr-2 h-screen bg-dakColor-dC'>
+        <div className='flex flex-col justify-evenly gap-1 h-screen bg-dakColor-dC'>
                 <div className='mt-2'>
                     <h1 className='text-lg text-center text-white'>Name Barbershop</h1>
                 </div>

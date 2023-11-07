@@ -2,8 +2,8 @@ import React from 'react'
 import * as FaIcons from 'react-icons/fa6';
 export default function Users() {
     return (
-        <section className='grid grid-cols-5 auto-rows-2'>
-            <div className='bg-firstColor-fC  col-span-2 flex flex-wrap p-2 justify-between'>
+        <section className='grid grid-cols-5 auto-rows-2 gap-2 m-2'>
+            <div className='bg-firstColor-fC  col-span-2 flex flex-wrap p-2 justify-between rounded-lg'>
                 <div className=' w-1/2 h-1/2 bg-slate-100 border-2 border-black flex flex-col gap-3 p-5'>
                     <div className='flex justify-between items-center'>
                         <p>Visitors</p>
