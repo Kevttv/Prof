@@ -22,7 +22,11 @@ export default function Dashboard() {
             </div>
             <div className='bg-firstColor-fC col-span-3 row-span-3'>User Card</div>
             <div className='bg-firstColor-fC col-span-4 row-span-3'>User Card</div>
-            <div className='bg-firstColor-fC col-span-2 row-span-3'>User Card</div>
+            <div className='bg-firstColor-fC col-span-2 row-span-3'>
+                <table>
+                    
+                </table>
+            </div>
 
 
         </section>
