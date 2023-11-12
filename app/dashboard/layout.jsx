@@ -1,6 +1,7 @@
 import React from 'react'
-import Nav from '@/components/Dashboard/Nav'
+// import {Nav} from '@components/Dashboard/Nav'
 
+import Nav from '../../components/Dashboard/Nav'
 
 export default function LayoutDash({children}) {
     return (
