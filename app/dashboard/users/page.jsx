@@ -1,4 +1,5 @@
 import React from 'react'
+import Info from '@/components/Dashboard/Info'
 import * as FaIcons from 'react-icons/fa6';
 export default function Users() {
     return (
@@ -24,7 +25,9 @@ export default function Users() {
                     revenue
                 </div>
             </div>
-            <div className='bg-firstColor-fC border-2 col-span-3'>User Card</div>
+            <div className='bg-firstColor-fC border-2 col-span-3 flex'>
+                <Info/>
+            </div>
             <div className='bg-firstColor-fC border-2 col-span-3'>User Card</div>
             <div className='bg-firstColor-fC border-2 col-span-2'>User Card</div>
 
