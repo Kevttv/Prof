@@ -19,23 +19,25 @@ ChartJS.register(
     Tooltip
 );
 
-const Metrics = () => {
+async function CountUsers () {
+    const res = await fetch('https://adso-lookstyle.onrender.com/api/v1/users')
+    const data = await res.json()
+    
+    console.log(data)
+}
+
+async function Metrics () {
+    CountUsers()
     return (
         <div>
             <Line
                 data={{
                     labels: [
-                        "2023-01",
-                        "2023-02",
-                        "2023-03",
-                        "2023-04",
-                        "2023-05",
-                        "2023-06",
-                        "2023-07",
+                        
                     ],
                     datasets: [
                         {
-                            data: [100, 120, 115, 134, 168, 132, 200],
+                            data: [],
                             backgroundColor: "purple",
                         },
                     ],
