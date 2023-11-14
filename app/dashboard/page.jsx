@@ -1,5 +1,6 @@
 import React from 'react'
-
+import InfoUsers from '@/components/Dashboard/Info';
+import Metrics from '@/components/Dashboard/Metrics';
 import * as FaIcons from 'react-icons/fa6';
 
 export default function Dashboard() {
@@ -20,8 +21,12 @@ export default function Dashboard() {
                     Visitors
                 </div>
             </div>
-            <div className='bg-firstColor-fC col-span-3 row-span-3'></div>
-            <div className='bg-firstColor-fC col-span-4 row-span-3'></div>
+            <div className=' col-span-3 row-span-3 rounded-xl bg-gray-500 '>
+            <Metrics/>
+            </div>
+            <div className='bg-gray-500 col-span-4 row-span-3'>
+                <InfoUsers/>
+            </div>
             <div className='bg-firstColor-fC col-span-2 row-span-3'></div>
 
 

@@ -1,65 +1,59 @@
 'use client'
 import React from "react";
+import { useState, useEffect } from 'react'
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue } from "@nextui-org/react";
 
-const rows = [
-    {
-        key: "1",
-        name: "Tony Reichert",
-        role: "CEO",
-        status: "Active",
-    },
-    {
-        key: "2",
-        name: "Zoey Lang",
-        role: "Technical Lead",
-        status: "Paused",
-    },
-    {
-        key: "3",
-        name: "Jane Fisher",
-        role: "Senior Developer",
-        status: "Active",
-    },
-    {
-        key: "4",
-        name: "William Howard",
-        role: "Community Manager",
-        status: "Vacation",
-    },
-];
+
+const url = 'https://adso-lookstyle.onrender.com/api/v1/users'
+
+async function getUser() {
+    const response = await fetch(url)
+    const data = await response.json()
+
+    return data
+}
 
 const columns = [
+    {
+        key: "id",
+        label: "ID",
+    },
     {
         key: "name",
         label: "NAME",
     },
     {
-        key: "role",
-        label: "ROLE",
+        key: "last_name",
+        label: "LAST NAME",
     },
     {
-        key: "status",
-        label: "STATUS",
+        key: "email",
+        label: "EMAIL",
     },
 ];
 
-export default function App() {
+export default function InfoUsers() {
+    const [userData, setUserData] = useState([]);
+
+    useEffect(() => {
+        async function getData() {
+            const result = await getUser();
+            setUserData(result.data);
+        }
+        getData();
+    }, []);
     return (
-        <div className="h-full w-full p-5 flex items-center">
-            
-        <Table className="border-2 border-purple-900 h-full w-full  " aria-label="Example table with dynamic content">
+        <Table className="w-auto h-full flex justify-between bg-gray-500 text-white">
             <TableHeader className="" columns={columns}>
-                {(column) => <TableColumn className="h-[10vh] w-auto border-2 border-black" key={column.key}>{column.label}</TableColumn>}
+                {(column) => <TableColumn className="bg-gray-700 text-center p-4 " key={column.key}>{column.label}</TableColumn>}
             </TableHeader>
-            <TableBody className="" items={rows}>
+            <TableBody items={userData}>
                 {(item) => (
-                    <TableRow className=" border-2 border-red-950 " key={item.key}>
-                        {(columnKey) => <TableCell className="border-2 border-white text-center">{getKeyValue(item, columnKey)}</TableCell>}
+                    <TableRow className="" key={item.key}>
+                        {(columnKey) => <TableCell className="text-center">{getKeyValue(item, columnKey)}</TableCell>}
                     </TableRow>
                 )}
             </TableBody>
         </Table>
-        </div>
     );
 }

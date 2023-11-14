@@ -19,28 +19,43 @@ ChartJS.register(
     Tooltip
 );
 
-async function CountUsers () {
-    const res = await fetch('https://adso-lookstyle.onrender.com/api/v1/users')
-    const data = await res.json()
-    
-    console.log(data)
-}
+async function Metrics () { 
 
-async function Metrics () {
-    CountUsers()
     return (
-        <div>
-            <Line
+        <div className="m-5 w-auto  ">
+            <Line 
                 data={{
                     labels: [
-                        
+                        "2023",
+                        "2023",
+                        "2023",
+                        "2023",
+                        "2023",
+                        "2023"
                     ],
                     datasets: [
                         {
-                            data: [],
-                            backgroundColor: "purple",
+                            data: [105, 106, 110, 120, 150, 120],
+                            backgroundColor: 'blue',
+                            borderColor: 'white',
+                            
+                            
                         },
                     ],
+                }}
+                options={{
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: 'white', // Cambia el color de los textos en el eje x a blanco
+                            },
+                        },
+                        y: {
+                            ticks: {
+                                color: 'white', // Cambia el color de los textos en el eje y a blanco
+                            },
+                        },
+                    },
                 }}
             />
         </div>
