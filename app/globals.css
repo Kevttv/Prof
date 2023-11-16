@@ -9,7 +9,7 @@
     }
 
     .CardProfile {
-        @apply flex items-center gap-2 h-1/6 w-full mt-4 mx-2 p-4 rounded-s-xl text-white bg-[#3d90c7] shadow-black shadow-lg;
+        @apply flex items-center gap-2 h-1/6 w-full mt-4 mx-2 p-4 rounded-s-xl text-white bg-firstColor-fC shadow-black shadow-lg;
     }
 }
 

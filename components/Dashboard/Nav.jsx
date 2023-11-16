@@ -36,12 +36,6 @@ export default function Nav() {
             </Link>
           </li>
           <li>
-            <Link className="Links" href="/dashboard/users">
-              <FaIcons.FaUsersLine />
-              Users
-            </Link>
-          </li>
-          <li>
             <Link className="Links" href="/dashboard/notifications">
               <FaIcons.FaBell />
               Notifications

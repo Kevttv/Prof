@@ -12,13 +12,13 @@ export default function Dashboard() {
                     Visitors
                 </div>
                 <div className='h-1/2 bg-red-500 w-1/2 rounded-tr-xl p-3 '>
-                    Visitors
+                    Appointments
                 </div>
                 <div className='h-1/2 bg-violet-600 w-1/2 rounded-bl-xl p-3'>
-                    Visitors
+                    Sales
                 </div>
                 <div className='h-1/2 bg-black w-1/2 rounded-br-xl p-3'>
-                    Visitors
+                    Users
                 </div>
             </div>
             <div className=' col-span-3 row-span-3 rounded-xl bg-gray-500 '>
