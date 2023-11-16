@@ -18,7 +18,7 @@ module.exports = {
           tC: "#f33535"
         },
         graytColor:{
-          gC: "70727c"
+          gC: "#70727c"
         },
         dakColor:{
           dC: "#191b21"

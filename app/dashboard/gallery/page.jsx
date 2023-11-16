@@ -11,7 +11,7 @@ import UserCard from '@/components/User/UserCard'
 export default function Gallery() {
     return (
         <div>
-            <UserCard/>
+            gallery
         </div>
     )
 }
