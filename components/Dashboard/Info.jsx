@@ -43,9 +43,9 @@ export default function InfoUsers() {
         getData();
     }, []);
     return (
-        <Table className="w-auto h-full flex justify-between bg-gray-500 text-white" aria-label="Example static collection table">
+        <Table className="w-auto h-full flex justify-between bg-dakColor-dC rounded-xl text-white" aria-label="Example static collection table">
             <TableHeader className="" columns={columns}>
-                {(column) => <TableColumn className="bg-gray-700 text-center p-4 " key={column.key}>{column.label}</TableColumn>}
+                {(column) => <TableColumn className="bg-graytColor-gC text-center p-4" key={column.key}>{column.label}</TableColumn>}
             </TableHeader>
             <TableBody items={userData}>
                 {(item) => (

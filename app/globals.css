@@ -5,7 +5,7 @@
 
 @layer components {
     .Links {
-        @apply w-full h-[45px] p-2 gap-3 flex items-center rounded-[10px] hover:bg-black hover:text-white text-white text-[18px] focus:bg-black;
+        @apply w-auto h-[45px] p-3 gap-3 flex items-center rounded-[10px]  hover:bg-[#878686] hover:text-white text-white text-[18px] focus:bg-black;
     }
 
     .CardProfile {
