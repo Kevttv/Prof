@@ -1,57 +1,38 @@
 'use client'
-// import React from 'react'
-// import Link from 'next/link'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-
-import { useState, useEffect } from 'react'
-
-
-const url = 'https://adso-lookstyle.onrender.com/api/v1/users'
-
-async function getUser() {
-    const response = await fetch(url)
-    const data = await response.json()
-
-    // console.log(data)
-
-    return data
-}
-export default function UserCard() {
-    const [userData, setUserData] = useState([])
+const AppointmentInfo = () => {
+    const [data, setData] = useState({ appointments: [], users: [], barbershops: [] });
 
     useEffect(() => {
-        async function getData() {
-            const result = await getUser()
-            setUserData(result.data)
-        }
-        getData()
-    })
-    return (
+        const fetchAppointments = axios.get('https://adso-lookstyle.onrender.com/api/v1/appointments');
+        const fetchUsers = axios.get('https://adso-lookstyle.onrender.com/api/v1/users');
+        const fetchBarbershops = axios.get('https://adso-lookstyle.onrender.com/api/v1/barbershops');
 
+        Promise.all([fetchAppointments, fetchUsers, fetchBarbershops])
+            .then((responses) => {
+                setData({
+                    appointments: responses[0].data,
+                    users: responses[1].data,
+                    barbershops: responses[2].data,
+                });
+            })
+            .catch((error) => {
+                console.error('Error fetching appointments data: ', error);
+                console.error('Error fetching users data: ', error);
+                console.error('Error fetching barbershops data: ', error);
+            })
+    }, []);
+
+    return (
         <div>
             {
-                userData.map(user => (
-                    <h1 key={user.id}>{user.name}</h1>
-                ))
+                // console.log(data.appointments.data)
+                // console.log(data.barbershops.data[1])
             }
         </div>
+    );
+};
 
-
-
-
-
-
-
-
-
-
-        // <div>
-        //     <div key={user.id}>
-        //         <Link href={`/users/${user.id}`}>
-        //             <h3>{user.id}. {user.name}</h3>
-        //         </Link>
-        //         <p>{user.last_name}</p>
-        //     </div>
-        // </div>
-    )
-}
+export default AppointmentInfo;

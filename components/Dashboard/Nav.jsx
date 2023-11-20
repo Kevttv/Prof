@@ -1,11 +1,14 @@
+'use client'
+import { useState } from "react";
 import React from "react";
 import Link from "next/link";
 import * as FaIcons from "react-icons/fa6";
 import * as HiIcons from "react-icons/hi";
 
 export default function Nav() {
+  const [isExpanded, setIsExpanded] = useState(true);
   return (
-    <div className="flex flex-col justify-evenly gap-1 h-screen bg-dakColor-dC">
+    <div className={`flex flex-col justify-evenly gap-1 h-screen ${isExpanded ? 'bg-dakColor-dC' : 'w-1/6 bg-dakColor-dC'}`}>
       <div className="mt-2">
         <h1 className="text-lg text-center text-white">Name Barbershop</h1>
       </div>
@@ -14,41 +17,48 @@ export default function Nav() {
           <li>
             <Link className="Links" href="/">
               <HiIcons.HiHome />
-              Home
+              {isExpanded && 'Home'}
             </Link>
           </li>
           <li>
             <Link className="Links" href="/dashboard">
               <HiIcons.HiViewGrid />
-              Dashboard
+              {isExpanded && 'Dashboard'}
             </Link>
           </li>
           <li>
             <Link className="Links" href="/dashboard/calendar">
               <FaIcons.FaCalendarDays />
-              Calendar
+              
+              {isExpanded && 'Calendar'}
             </Link>
           </li>
           <li>
             <Link className="Links" href="/dashboard/gallery">
               <HiIcons.HiPhotograph />
-              Pictures
+              
+              {isExpanded && 'Pictures'}
             </Link>
           </li>
           <li>
             <Link className="Links" href="/dashboard/users">
               <FaIcons.FaUsersLine />
-              Users
+              
+              {isExpanded && 'Users'}
             </Link>
           </li>
           <li>
             <Link className="Links" href="/dashboard/notifications">
               <FaIcons.FaBell />
-              Notifications
+              
+              {isExpanded && 'Notifications'}
             </Link>
           </li>
         </ul>
       </nav>
+      <button onClick={()=> setIsExpanded(!isExpanded)}>
+        {isExpanded ? 'collapse' : 'expand'}
+      </button>
       {/* <div className='border-2 h-24 w-auto mx-4 flex gap-2 items-center text-white '>
                 <h2 className='text-[18px]'>Logout</h2>
                 <FaIcons.FaArrowRightToBracket />

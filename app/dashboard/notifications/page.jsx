@@ -1,9 +1,11 @@
 import React from 'react'
-import Metrics from '@/components/Dashboard/Metrics'
+import UserCard from '@/components/User/UserCard'
 
 export default function Notifications() {
     return (
-        <div>Notifications
+        <div>
+            <UserCard/>
         </div>
     )
 }
+
