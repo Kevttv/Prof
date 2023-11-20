@@ -8,26 +8,26 @@ export default function Dashboard() {
         <section className='grid grid-cols-6 grid-rows-6 gap-2 m-2'>
             
             <div className='col-span-3 row-span-3 flex flex-wrap justify-between items-center text-white  '>
-                <div className='h-1/2 bg-gray-700 w-1/2 rounded-tl-xl p-3'>
+                <div className='h-1/2 w-1/2 bg-firstColor-fC rounded-tl-xl p-3'>
                     Visitors
                 </div>
-                <div className='h-1/2 bg-red-500 w-1/2 rounded-tr-xl p-3 '>
-                    Visitors
+                <div className='h-1/2 w-1/2 bg-secondColor-sC rounded-tr-xl p-3 '>
+                    Appointments
                 </div>
-                <div className='h-1/2 bg-violet-600 w-1/2 rounded-bl-xl p-3'>
-                    Visitors
+                <div className='h-1/2  w-1/2 bg-graytColor-gC rounded-bl-xl p-3'>
+                    Sales
                 </div>
-                <div className='h-1/2 bg-black w-1/2 rounded-br-xl p-3'>
-                    Visitors
+                <div className='h-1/2  w-1/2 bg-dakColor-dC rounded-br-xl p-3'>
+                    Users
                 </div>
             </div>
-            <div className=' col-span-3 row-span-3 rounded-xl bg-gray-500 '>
+            <div className=' col-span-3 row-span-3 rounded-xl bg-graytColor-gC '>
             <Metrics/>
             </div>
-            <div className='bg-gray-500 col-span-4 row-span-3'>
+            <div className=' col-span-4 row-span-3 '>
                 <InfoUsers/>
             </div>
-            <div className='bg-firstColor-fC col-span-2 row-span-3'></div>
+            <div className='bg-firstColor-fC col-span-2 row-span-3 rounded-xl'></div>
 
 
         </section>

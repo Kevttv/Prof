@@ -26,18 +26,19 @@ async function Metrics () {
             <Line 
                 data={{
                     labels: [
-                        "2023",
-                        "2023",
-                        "2023",
-                        "2023",
-                        "2023",
-                        "2023"
+                        "Enero",
+                        "Febrero",
+                        "Marzo",
+                        "Abril",
+                        "Mayo",
+                        "Junio"
                     ],
                     datasets: [
                         {
                             data: [105, 106, 110, 120, 150, 120],
                             backgroundColor: 'blue',
                             borderColor: 'white',
+                            
                             
                             
                         },
