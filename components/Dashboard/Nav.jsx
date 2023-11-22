@@ -41,16 +41,6 @@ export default function Nav() {
             </Link>
           </li>
           <li>
-<<<<<<< HEAD
-            <Link className="Links" href="/dashboard/users">
-              <FaIcons.FaUsersLine />
-              
-              {isExpanded && 'Users'}
-            </Link>
-          </li>
-          <li>
-=======
->>>>>>> f409612d7301beb4d1cf0ad8159fcd2a7b056935
             <Link className="Links" href="/dashboard/notifications">
               <FaIcons.FaBell />
               
