@@ -15,9 +15,9 @@ export default function Citas() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const localDate = new Date(fech);
-        localDate.setMinutes(localDate.getMinutes() - localDate.getTimezoneOffset());
-        const Citadata = { appointment_date: localDate.toISOString().slice(0, 10), appointment_hour: hora, UserId: UserId, BarbershopId: BarbershopId, BarberId: BarberId };
+        // const localDate = new Date(fech);
+        // localDate.setMinutes(localDate.getMinutes() - localDate.getTimezoneOffset());
+        const Citadata = { appointment_date: fech, appointment_hour: hora, UserId: UserId, BarbershopId: BarbershopId, BarberId: BarberId };
         const response = await axios.post("https://adso-lookstyle.onrender.com/api/v1/appointments", Citadata)
             .then((response) => {
                 console.log(response.data)
@@ -40,8 +40,8 @@ export default function Citas() {
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className=" h-1/3 w-2/4 bg-gray-500">
+            <form onSubmit={handleSubmit} className="flex flex-col">
                 <label htmlFor="email">Fecha de la cita</label>
                 <input
                     type="date"

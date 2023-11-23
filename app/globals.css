@@ -23,4 +23,7 @@ body {
     grid-template-columns: 20% 80%;
 }
 
-
+#calendar {
+    max-width: 200px;
+    margin: 10px auto;
+}

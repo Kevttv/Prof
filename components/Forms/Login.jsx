@@ -1,55 +1,50 @@
 'use client'
-import React, { useState } from "react";
-import axios from "axios";
+import React from 'react'
+import { useState } from 'react'
 
+export default function AppLogin() {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
+    const handleChangeEmail = (e) => {
+        setEmail(e.target.value)
+        console.log(email)
+    }
 
-export default function LoginCard() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const handleChangePassword = (e) => {
+        setPassword(e.target.value)
+        console.log(password)
+    }
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const userData = { email: email, password: password };
-        const response = await axios.post("https://adso-lookstyle.onrender.com/api/v1/users", userData)
-        .then((response) => {
-            console.log(response.data)
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        console.log(email)
+        console.log(password)
+        const response = await fetch("https://adso-lookstyle.onrender.com/api/v1/auth/authenticate", {
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+            })
         })
-        .catch((error) => {
-            if (error.response) {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
-            }
-            else if(error.request) {
-                console.log(error.request);            
-            }
-            else {
-                console.log('ERROR', error.message)
-            }
-            console.log('ERROR', error.config)
-        })
-    };
+        const data = await response.json()
+        if (response.ok) {
+            console.log(data)
+            document.cookie = `token=${data.token}; path=/; SameSite=None; Secure`
+        }
+    }
+
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email</label>
-                <input 
-                    type="text" 
-                    id="email" 
-                    value={email} 
-                    onChange={e => setEmail(e.target.value)} 
-                />
-                <label htmlFor="password">Password</label>
-                <input 
-                    type="password" 
-                    id="password" 
-                    value={password} 
-                    onChange={e => setPassword(e.target.value)} 
-                />
-                <button type="submit">Enviar</button>
+                <input type="email" placeholder='Ingresa tu email' value={email} onChange={handleChangeEmail}/>
+                <input type="text" placeholder='Ingresa tu contraseña' value={password} onChange={handleChangePassword}/>
+                <button type='submit'>Iniciar sesion</button>
             </form>
         </div>
-    );
+    )
 }

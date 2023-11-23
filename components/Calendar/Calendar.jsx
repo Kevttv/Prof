@@ -1,8 +1,12 @@
 'use client'
-'use strict';
 import React, { useState, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGrid from '@fullcalendar/timegrid'
+import listGrid from '@fullcalendar/list'
+import '../../app/globals.css'
+
+
 
 
 export default function Calendar() {
@@ -23,26 +27,29 @@ export default function Calendar() {
                 const mappedData = data.data.map(item => ({
                     title: item.id,
                     start: item.appointment_date,
-                    end: item.appointment_date 
+                    end: item.appointment_date
                 }));
                 setEvents(mappedData);
-                console.log(mappedData[0])
+                console.log(mappedData)
             });
     }, []);
 
     return (
-        <div className="text-center m-5 h-screen w-auto overflow-y-hidden">
-            <FullCalendar
-                defaultView="dayGridMonth"
-                header={{
+        <div className="p-7 overflow-auto h-screen">
+            <FullCalendar 
+                initialView="dayGridMonth"
+                headerToolbar={{
                     left: "prev,next",
                     center: "title",
-                    right: "dayGridMonth,timeGridWeek,timeGridDay"
+                    right: "dayGridMonth,listWeek"
                 }}
                 themeSystem="simplex"
-                plugins={[dayGridPlugin]}
+                plugins={[dayGridPlugin, listGrid]}
                 events={events}
+                timeZone="America/Bogota"
             />
+            
         </div>
     );
+    
 }
