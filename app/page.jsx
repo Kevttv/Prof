@@ -9,6 +9,7 @@ export default function Home() {
           <li>
             <Link href="/dashboard">Dashboard</Link>
             <Link href="/login">Login</Link>
+            <Link href="/register">Register</Link>
           </li>
         </nav>
     </div>

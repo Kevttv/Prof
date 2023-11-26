@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import timeGrid from '@fullcalendar/timegrid'
+// import timeGrid from '@fullcalendar/timegrid'
 import listGrid from '@fullcalendar/list'
 import '../../app/globals.css'
 

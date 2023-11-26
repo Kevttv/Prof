@@ -19,10 +19,7 @@ body {
 .GridMain{
     height: 100vh;
     width: 100%;
+    display: flex;
 
 }
 
-#calendar {
-    max-width: 200px;
-    margin: 10px auto;
-}

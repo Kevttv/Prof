@@ -5,7 +5,7 @@ import LoginCard from '@/components/Forms/Login'
 export default function Login() {
     return (
         <div>
-            <LoginCard/>
+            <LoginCard />
         </div>
     )
 }
