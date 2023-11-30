@@ -14,7 +14,7 @@ export default function RegisterBarbershops() {
     const [info, setInfo] = useState("")
     const [socialNetworks, setSocialNetworks] = useState("")
     const [state, setState] = useState("")
-    const [photoProfile, setPhotoProfile] = useState("")
+    // const [photoProfile, setPhotoProfile] = useState("")
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -30,14 +30,9 @@ export default function RegisterBarbershops() {
             information : info,
             social_networks : socialNetworks,
             state : state,
-            photo_profile : photoProfile
+            // photo_profile : photoProfile
         }
-        const response = await axios.post("https://adso-lookstyle.onrender.com/api/v1/barbershops", BarbershopData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
-        
+        const response = await axios.post("https://adso-lookstyle.onrender.com/api/v1/barbershops", BarbershopData)
             .then((response) => {
                 console.log(response.data)
             })
@@ -113,11 +108,11 @@ export default function RegisterBarbershops() {
                     value={state}
                     onChange={e => setState(e.target.value)} />
 
-                <label htmlFor="">profile_photo</label>
+                {/* <label htmlFor="">profile_photo</label>
                 <input type="file"
                     id='profile_photo'
                     value={photoProfile}
-                    onChange={e => setPhotoProfile(e.target.files)} />
+                    onChange={e => setPhotoProfile(e.target.files[0])} /> */}
 
                 <button onClick={handleSubmit}>Enviar</button>
             </form>

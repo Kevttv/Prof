@@ -1,6 +1,7 @@
 
 import React from 'react'
-import UserCard from '@/components/User/UserCard'
+// import Image from 'next/image'
+// import UserCard from '@/components/User/UserCard'
 
 // async function LoadUsers() {
 //     const res = await fetch('https://adso-lookstyle.onrender.com/api/v1/users')
@@ -10,8 +11,9 @@ import UserCard from '@/components/User/UserCard'
 
 export default function Gallery() {
     return (
-        <div>
-            gallery
-        </div>
+        <>
+
+        </>
+
     )
 }

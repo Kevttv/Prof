@@ -4,6 +4,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import Cookies from 'js-cookie'
 
 export default function AppLogin() {
     const [email, setEmail] = useState("")
@@ -33,7 +34,9 @@ export default function AppLogin() {
                 }
             })
             const data = response.data
-            document.cookie = `token=${data.token}; path=/; SameSite=None; Secure`
+            console.log(data)
+            Cookies.set('token', data.token, {sameSite: 'None'})
+            Cookies.set('userId', data.id, {sameSite: 'None'})
             document.cookie = `role=${data.role}; path=/; SameSite=None; Secure`
 
             // Comprobar el rol
@@ -41,7 +44,6 @@ export default function AppLogin() {
                 case 101:
                     console.log("El usuario es un cliente");
                     router.push('/')
-                    // window.location = '/'
                     break;
                 case 201:
                     console.log("El usuario es un barbero");
