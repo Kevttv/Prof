@@ -1,38 +1,16 @@
 'use client'
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import Link from 'next/link'
+import React from 'react'
 
-const AppointmentInfo = () => {
-    const [data, setData] = useState({ appointments: [], users: [], barbershops: [] });
-
-    useEffect(() => {
-        const fetchAppointments = axios.get('https://adso-lookstyle.onrender.com/api/v1/appointments');
-        const fetchUsers = axios.get('https://adso-lookstyle.onrender.com/api/v1/users');
-        const fetchBarbershops = axios.get('https://adso-lookstyle.onrender.com/api/v1/barbershops');
-
-        Promise.all([fetchAppointments, fetchUsers, fetchBarbershops])
-            .then((responses) => {
-                setData({
-                    appointments: responses[0].data,
-                    users: responses[1].data,
-                    barbershops: responses[2].data,
-                });
-            })
-            .catch((error) => {
-                console.error('Error fetching appointments data: ', error);
-                console.error('Error fetching users data: ', error);
-                console.error('Error fetching barbershops data: ', error);
-            })
-    }, []);
-
+export default function UserCard({user}) {
     return (
         <div>
-            {
-                // console.log(data.appointments.data)
-                // console.log(data.barbershops.data[1])
-            }
+            <div key={user.id}>
+                <Link href={`/users/${user.id}`}>
+                    <h3>{user.id}. {user.name}</h3>
+                </Link>
+                <button onClick={() => alert('New function')}>Click</button>
+            </div>
         </div>
-    );
-};
-
-export default AppointmentInfo;
+    )
+}
