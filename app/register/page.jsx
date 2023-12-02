@@ -1,7 +1,8 @@
 'use client'
 import React from 'react'
-import Register from '@/components/Forms/RegisterUser'
-import RegisterBarbershops from '@/components/Forms/RegisterBarbershops'
+import Register from '../../components/Forms/RegisterUser'
+import RegisterBarbershops from '../../components/Forms/RegisterBarbershops'
+
 import { useState } from 'react'
 export default function RegisterPage() {
     const [showForm, setShowForm] = useState(false)

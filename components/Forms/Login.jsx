@@ -35,9 +35,11 @@ export default function AppLogin() {
             })
             const data = response.data
             console.log(data)
-            Cookies.set('token', data.token, {sameSite: 'None'})
-            Cookies.set('userId', data.id, {sameSite: 'None'})
-            document.cookie = `role=${data.role}; path=/; SameSite=None; Secure`
+            Cookies.set('token', data.token, { sameSite: 'None', secure: true})
+            setTimeout(() => {
+                router.push('/')}, 1000)
+
+
 
             // Comprobar el rol
             switch (data.role) {
