@@ -18,7 +18,7 @@ export default function BarbershopRoute({ children }) {
     }, [role])
 
     if (loading) {
-        return null // Aquí puedes retornar un componente de carga si lo prefieres
+        return null //retornar un componente de carga
     }
 
     return role === '201' ? children : null
