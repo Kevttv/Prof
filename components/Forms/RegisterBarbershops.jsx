@@ -26,7 +26,7 @@ export default function RegisterBarbershops() {
         formData.append('phone_number', phoneNumber);
         formData.append('location', location);
         formData.append('information', info);
-        formData.append('social_networks', socialNetworks);
+        formData.append('social_networks', socialNetworks.split(","));
         formData.append('state', state);
         formData.append('profile_photo', profilePhoto);
 
