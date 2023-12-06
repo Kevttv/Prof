@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
+// import Link from 'next/link'
 import Cookies from 'js-cookie'
 
 export default function AppLogin() {
@@ -35,9 +35,10 @@ export default function AppLogin() {
             })
             const data = response.data
             console.log(data)
-            Cookies.set('token', data.token, { sameSite: 'None', secure: true})
+            Cookies.set('token', data.token, { sameSite: 'None', secure: true })
             setTimeout(() => {
-                router.push('/')}, 1000)
+                router.push('/')
+            }, 1000)
 
 
 
@@ -82,13 +83,48 @@ export default function AppLogin() {
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input type="email" placeholder='Ingresa tu email' value={email} onChange={handleChangeEmail} />
-                <input type="text" placeholder='Ingresa tu contraseña' value={password} onChange={handleChangePassword} />
-                <button type='submit'>Iniciar sesion</button>
+        <div className="min-h-screen flex items-center justify-center">
+            <form className="bg-white shadow-md rounded px-4 sm:px-8 pt-6 pb-8 mb-4 w-full max-w-md" onSubmit={handleSubmit}>
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                        Email
+                    </label>
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="email"
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={handleChangeEmail}
+                        required
+                    />
+                </div>
+                <div className="mb-6">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                        Contraseña
+                    </label>
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="password"
+                        type="password"
+                        placeholder="Contraseña"
+                        value={password}
+                        onChange={handleChangePassword}
+                        required
+                    />
+                </div>
+                <div className="flex items-center justify-between">
+                    <button
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full sm:w-auto"
+                        type="submit"
+                    >
+                        Iniciar Sesión
+                    </button>
+                    <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 mt-4 sm:mt-0" href="#">
+                        ¿Olvidaste tu contraseña?
+                    </a>
+                </div>
             </form>
-            <Link href='/'>Ir a la home</Link>
         </div>
     )
 }
